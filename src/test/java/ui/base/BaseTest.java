@@ -6,10 +6,17 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
+/**
+ * BaseTest sets up and tears down the Selenium WebDriver for UI tests.
+ * It provides a Chrome browser instance and manages its lifecycle.
+ */
 public class BaseTest {
 
     WebDriver driver;
 
+    /**
+     * Initializes the Chrome WebDriver before any test class runs.
+     */
     @BeforeClass
     public void init() {
 
@@ -24,6 +31,9 @@ public class BaseTest {
         driver.get("https://www.google.com/");
     }
 
+    /**
+     * Quits the WebDriver after all tests in the class have run.
+     */
     @AfterClass
     public void tearDown() {
         if (driver != null) {
@@ -31,6 +41,10 @@ public class BaseTest {
         }
     }
 
+    /**
+     * Returns the current WebDriver instance.
+     * @return WebDriver
+     */
     public WebDriver getDriver() {
         return driver;
     }

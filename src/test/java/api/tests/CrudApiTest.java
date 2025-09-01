@@ -10,8 +10,14 @@ import org.testng.annotations.Test;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 
+/**
+ * CrudApiTest contains API test cases for CRUD operations on Pet API.
+ */
 public class CrudApiTest {
 
+    /**
+     * Verifies getting a pet by ID returns correct details.
+     */
     @Test
     public void getPetById() {
         Response response = RestUtils.getOne("/api/v3/pet", 1);
@@ -23,6 +29,9 @@ public class CrudApiTest {
         assertThat(jsonPath.getString("status"), equalTo("available"));
     }
 
+    /**
+     * Verifies getting pets by status returns non-empty results.
+     */
     @Test
     public void getPetByStatus() {
         Response response = RestUtils.getPetsByStatus("available");
@@ -31,6 +40,9 @@ public class CrudApiTest {
         assertThat(jsonPath.getList("$"), is(not(empty())));
     }
 
+    /**
+     * Verifies creating a pet returns correct details.
+     */
     @Test
     public void createPet() {
         Pet petPayload = PetSeeds.createPet();
@@ -45,6 +57,9 @@ public class CrudApiTest {
 
     }
 
+    /**
+     * Verifies updating a pet works as expected.
+     */
     @Test
     public void updatePet() {
         Pet petPayload = PetSeeds.createPet();
@@ -63,6 +78,9 @@ public class CrudApiTest {
 
     }
 
+    /**
+     * Verifies deleting a pet works as expected.
+     */
     @Test
     public void deletePet() {
         Pet petPayload = PetSeeds.createPet();

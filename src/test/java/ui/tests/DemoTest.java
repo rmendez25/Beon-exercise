@@ -6,8 +6,14 @@ import ui.pages.GoogleHomePage;
 
 import static org.testng.Assert.assertEquals;
 
+/**
+ * DemoTest contains UI test cases for Google search automation.
+ */
 public class DemoTest extends BaseTest {
 
+    /**
+     * Verifies Google search for 'selenium' and validates the result page.
+     */
     @Test
     void googleSearchTest() {
         GoogleHomePage googleHomePage = new GoogleHomePage(getDriver());
