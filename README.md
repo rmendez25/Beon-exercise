@@ -57,7 +57,7 @@ target/                  # Build output
 - API tests assume a running Pet API at the configured endpoint.
 
 ## Author
-- [Robert Mendez]
+- Robert Mendez
 
 ---
 For more details, see the Javadoc comments in the source code.
